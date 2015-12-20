@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/static/build/css/main.css" rel="stylesheet" type="text/css"/>
+    <base href="/">
+</head>
+<body>
+<section class="wrapper" ng-controller="LayoutController as layout">
+    <header class="container">
+        <div class="header clearfix">
+
+            <nav ng-if="layout.isUserLoggedIn()" class="ng-cloak">
+                <ul class="nav nav-pills pull-right">
+                    <li class="active">
+                        <a href="/">Grid</a>
+                    </li>
+                    <li>
+                        <a href="logout">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <h3 class="text-muted">Demo app</h3>
+        </div>
+    </header>
+
+    <div class="content-view" ng-view></div>
+</section>
+
+<!-- libs -->
+<script src="/static/angular/angular.js"></script>
+<script src="/static/angular-animate/angular-animate.js"></script>
+<script src="/static/ngstorage/ngStorage.js"></script>
+<script src="/static/angular-route/angular-route.js"></script>
+<script src="/static/ng-notify/dist/ng-notify.min.js"></script>
+<!-- scripts-->
+<script src="/static/scripts/login.module.js"></script>
+<script src="/static/scripts/layout.module.js"></script>
+<script src="/static/scripts/service.module.js"></script>
+<script src="/static/scripts/app.module.js"></script>
+</body>
+</html>

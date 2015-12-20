@@ -1,0 +1,109 @@
+<section class="container">
+    <h2>SO-Admin-Bulk-ServicedEdit</h2>
+
+    <h4>Редактирование сервисов</h4>
+    <form class="service-edit">
+        <table class="table table-bordered ">
+            <tr>
+                <td class="box-right">
+                    <label>Login</label>
+                    <input type="text" class="form-control">
+                </td>
+                <td>
+                    <label>Тип расчета курса</label>
+                    <select class="form-control">
+                        <option>Ежедневный</option>
+                        <option>0</option>
+                        <option>1</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>IDP партнера:</label>
+                    <span>0</span>
+                </td>
+                <td>
+                    <label>Банк у которого берутся курсы</label>
+                    <select class="form-control">
+                        <option>CBRF</option>
+                        <option>0</option>
+                        <option>1</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Метод получения DLR</label>
+                    <select class="form-control">
+                        <option>GET</option>
+                        <option>0</option>
+                        <option>1</option>
+                    </select>
+                </td>
+                <td>
+                    <label>Минимальный баланс для отправки нотификаций:</label>
+                    <input type="text" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Набор данных в dlr</label>
+                    <select class="form-control">
+                        <option>smpp</option>
+                        <option>0</option>
+                        <option>1</option>
+                    </select>
+                </td>
+                <td>
+                    <label>URL для уведомления о статусе SMS:</label>
+                    <input type="text" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Текущий баланс:</label><span>-1.90</span>
+                    <table class="inner-table">
+                        <tr>
+                            <th>
+                                <label>Дата</label>
+                            </th>
+                            <th>
+                                <label>Начислено</label>
+                            </th>
+                            <th>
+                                <label>Валюта</label>
+                            </th>
+                            <th>
+                                <label>Комментарий</label>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>1983 01:15:00</td>
+                            <td>100</td>
+                            <td>RUB</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input class="form-control small-field" type="number"></td>
+                            <td>
+                                <select class="form-control small-field">
+                                    <option>smpp</option>
+                                    <option>0</option>
+                                    <option>1</option>
+                                </select>
+                            </td>
+                            <td><input class="form-control" type="text"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <label>Кредитный лимит партнера:</label>
+                    <input type="text" class="form-control">
+                </td>
+            </tr>
+        </table>
+        <button type="button" class="btn btn-success pull-right">Сохранить</button>
+    </form>
+</section>

@@ -1,0 +1,19 @@
+<section class="container">
+    <form class="form-signin" ng-controller="LoginController as login" ng-class="{'has-error': login.error}"
+          ng-submit="login.authorization()">
+        <h2 class="form-signin-heading">Авторизация</h2>
+
+        <div ng-if="login.error" class="alert alert-danger" role="alert">
+            Логин или пароль неверный
+        </div>
+
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""
+               ng-model="login.email"/>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""
+               ng-model="login.password"/>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+    </form>
+</section>

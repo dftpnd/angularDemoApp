@@ -1,0 +1,77 @@
+<section class="container" ng-controller="LayoutController as layout">
+    <h2>SO-Admin-Bulk-ServicedEdit</h2>
+    <article class="row">
+        <aside class="col-md-6" ng-controller="ServiceCreateController as createCtrl">
+            <h4>Добавить новый сервис</h4>
+
+            <form ng-submit="createCtrl.save()">
+                <div class="form-group">
+                    <label for="input-number">IDP</label>
+                    <input type="number" class="form-control" id="input-number">
+                </div>
+                <div class="form-group">
+                    <label for="input-number">Login</label>
+                    <input type="text" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">Создать</button>
+            </form>
+        </aside>
+
+        <aside class="col-md-6" ng-controller="ServiceDeleteController as ctrl">
+            <h4>Удалить сервис по IDP:</h4>
+
+            <div class="form-group">
+                <label>IDP</label>
+                <select class="form-control">
+                    <option>-</option>
+                    <option>0</option>
+                    <option>1</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-danger">Удалить</button>
+        </aside>
+    </article>
+
+    <article class="table-header-search" ng-controller="ServiceSearchController as ctrl">
+        <h4>Поиск</h4>
+
+        <form class="form-inline">
+            <div class="form-group">
+                <select class="form-control">
+                    <option>-</option>
+                    <option>0</option>
+                    <option>E-mail для тех поддержки</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control">
+            </div>
+            <button type="button" class="btn btn-success">Поиск</button>
+        </form>
+    </article>
+
+    <table class="table table-bordered" ng-controller="ServiceViewController as ctrl">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Login</th>
+            <th>IDP</th>
+            <th>Баланс</th>
+            <th>E-mail для тех поддержки</th>
+            <th>Ссылки</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>asd</td>
+            <td>rteert</td>
+            <td>erter</td>
+            <td>ertert</td>
+            <td>
+                <a href="/edit/1" class="btn btn-warning">Редактировать</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
