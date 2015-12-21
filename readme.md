@@ -3,9 +3,11 @@
 ###Установка 
 В корне проекта:
 
-1) npm i
+1) npm i (установка зависимостей)
 
-2) npm run build
+2) npm run build (сборка прокат)
+
+3) node server/index.js (запуск сервера)
 
 Логин/пароль - admin/admin;
 
