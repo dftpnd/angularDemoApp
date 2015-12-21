@@ -5,7 +5,7 @@
 
 1) npm i (установка зависимостей)
 
-2) npm run build (сборка прокат)
+2) npm run build (сборка проекта)
 
 3) node server/index.js (запуск сервера)
 
