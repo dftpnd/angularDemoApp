@@ -5868,13 +5868,25 @@ html, body {
   .wrapper header {
     position: relative;
     z-index: 2;
-    height: 100px;
-    background: #fff; }
+    height: 50px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .wrapper header h3 {
+      display: flex;
+      margin: 0; }
+    .wrapper header ul {
+      margin: 0;
+      display: flex; }
+      .wrapper header ul li {
+        margin: 0;
+        display: block; }
   .wrapper .content-view {
     width: 100%;
     position: absolute;
     z-index: 1;
-    top: 100px;
+    top: 50px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -5883,7 +5895,7 @@ html, body {
     .wrapper .content-view.ng-enter {
       animation-name: fadeInDown; }
     .wrapper .content-view.ng-leave {
-      animation-name: fadeOutDown; }
+      animation-name: zoomOut; }
 
 .form-signin {
   max-width: 330px;

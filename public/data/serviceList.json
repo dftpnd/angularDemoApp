@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "login": "asd",
+    "idp": "123",
+    "balance": 22,
+    "email": "sos@gmail.com"
+  },
+  {
+    "id": 2,
+    "login": "1323",
+    "idp": 4213,
+    "balance": 123,
+    "email": "help@gmail.com"
+  }
+]

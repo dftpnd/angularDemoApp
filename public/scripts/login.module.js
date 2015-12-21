@@ -24,7 +24,7 @@
 
     module.service('Auth', function ($http, $location, $localStorage) {
         var self = {};
-        var loggedIn = $localStorage.$default({
+        var localStorage = $localStorage.$default({
             loggedIn: false
         });
 
@@ -39,7 +39,7 @@
             }).then(function successCallback(response) {
                 var res = response.data;
                 if (res.email === email && res.password === password) {
-                    loggedIn = true;
+                    localStorage.loggedIn = true;
                     $location.path('/');
                 } else {
                     callback(response);
@@ -48,11 +48,11 @@
         };
 
         self.logout = function () {
-            loggedIn = false;
+            localStorage.loggedIn = false;
         };
 
         self.isLoggedIn = function () {
-            return loggedIn;
+            return localStorage.loggedIn;
         };
 
         return self;

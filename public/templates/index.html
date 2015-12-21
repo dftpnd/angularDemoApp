@@ -8,24 +8,21 @@
 </head>
 <body>
 <section class="wrapper" ng-controller="LayoutController as layout">
-    <header class="container">
-        <div class="header clearfix">
-
+    <div class="container">
+        <header>
+            <h3>Demo app</h3>
             <nav ng-if="layout.isUserLoggedIn()" class="ng-cloak">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active">
-                        <a href="/">Grid</a>
+                <ul>
+                    <li class="">
+                        <a href="/" class="btn btn-link">Grid</a>
                     </li>
                     <li>
-                        <a href="logout">Logout</a>
+                        <a href="logout" class="btn btn-link">Logout</a>
                     </li>
                 </ul>
             </nav>
-
-            <h3 class="text-muted">Demo app</h3>
-        </div>
-    </header>
-
+        </header>
+    </div>
     <div class="content-view" ng-view></div>
 </section>
 

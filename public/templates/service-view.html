@@ -2,76 +2,105 @@
     <h2>SO-Admin-Bulk-ServicedEdit</h2>
     <article class="row">
         <aside class="col-md-6" ng-controller="ServiceCreateController as createCtrl">
-            <h4>Добавить новый сервис</h4>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Добавить новый сервис</h3>
+                </div>
 
-            <form ng-submit="createCtrl.save()">
-                <div class="form-group">
-                    <label for="input-number">IDP</label>
-                    <input type="number" class="form-control" id="input-number">
-                </div>
-                <div class="form-group">
-                    <label for="input-number">Login</label>
-                    <input type="text" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">Создать</button>
-            </form>
+                <form class="panel-body" ng-submit="createCtrl.save()">
+                    <input type="hidden" ng-model="createCtrl.form.id"/>
+                    <input type="hidden" ng-model="createCtrl.form.balance"/>
+                    <input type="hidden" ng-model="createCtrl.form.email"/>
+                    <div class="form-group">
+                        <label for="input-number">IDP</label>
+                        <input type="number" class="form-control" id="input-number" ng-model="createCtrl.form.idp"
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-number">Login</label>
+                        <input type="text" class="form-control" ng-model="createCtrl.form.login" required>
+                    </div>
+                    <button class="btn btn-primary pull-right" ng-disabled="!createCtrl.form.login" type="submit">
+                        Создать
+                    </button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
         </aside>
 
         <aside class="col-md-6" ng-controller="ServiceDeleteController as ctrl">
-            <h4>Удалить сервис по IDP:</h4>
-
-            <div class="form-group">
-                <label>IDP</label>
-                <select class="form-control">
-                    <option>-</option>
-                    <option>0</option>
-                    <option>1</option>
-                </select>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Удалить сервис по IDP:</h3>
+                </div>
+                <form class="panel-body" ng-submit="ctrl.delete()">
+                    <div class="form-group">
+                        <label>IDP</label>
+                        <select class="form-control" ng-model="ctrl.serviceIdp" required>
+                            <option value="">-</option>
+                            <option ng-repeat="item in ctrl.list()" value="{{item.idp}}">{{item.idp}}</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-danger pull-right" ng-disabled="!ctrl.serviceIdp" type="submit">Удалить
+                    </button>
+                    <div class="clearfix"></div>
+                </form>
             </div>
-            <button type="button" class="btn btn-danger">Удалить</button>
         </aside>
     </article>
 
-    <article class="table-header-search" ng-controller="ServiceSearchController as ctrl">
-        <h4>Поиск</h4>
+    <article class="table-header-search">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Поиск</h3>
+            </div>
+            <form class="panel-body form-inline" ng-controller="ServiceSearchController as ctrl"
+                  ng-submit="ctrl.search()">
+                <div class="form-group">
+                    <select class="form-control" ng-model="ctrl.searchType" required>
+                        <option>-</option>
+                        <option value="id">id</option>
+                        <option value="login">Login</option>
+                        <option value="idp">IDP</option>
+                        <option value="balance">Баланс</option>
+                        <option value="email">E-mail для тех поддержки</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="ctrl.searchQuery" >
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Поиск
+                </button>
+            </form>
 
-        <form class="form-inline">
-            <div class="form-group">
-                <select class="form-control">
-                    <option>-</option>
-                    <option>0</option>
-                    <option>E-mail для тех поддержки</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control">
-            </div>
-            <button type="button" class="btn btn-success">Поиск</button>
-        </form>
+            <table class="table table-bordered" ng-controller="ServiceViewController as viewCtrl">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Login</th>
+                    <th>IDP</th>
+                    <th>Баланс</th>
+                    <th>E-mail для тех поддержки</th>
+                    <th>Ссылки</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr ng-repeat="item in viewCtrl.list()">
+                    <td>{{item.id}}</td>
+                    <td>{{item.login}}</td>
+                    <td>{{item.idp}}</td>
+                    <td>{{item.balance}}</td>
+                    <td>{{item.email}}</td>
+                    <td>
+                        <a href="/edit/{{item.id}}" class="btn btn-link">Редактировать</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </article>
 
-    <table class="table table-bordered" ng-controller="ServiceViewController as ctrl">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Login</th>
-            <th>IDP</th>
-            <th>Баланс</th>
-            <th>E-mail для тех поддержки</th>
-            <th>Ссылки</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>1</td>
-            <td>asd</td>
-            <td>rteert</td>
-            <td>erter</td>
-            <td>ertert</td>
-            <td>
-                <a href="/edit/1" class="btn btn-warning">Редактировать</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+
 </section>
