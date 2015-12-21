@@ -26,9 +26,6 @@
 
     });
 
-    module.controller('ServiceEditController', function (Service) {
-
-    });
 
     module.controller('ServiceDeleteController', function (Service, ngNotify) {
         this.serviceIdp = '';
