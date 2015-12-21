@@ -4,8 +4,8 @@
 
     module.controller('LoginController', function (Auth) {
         var self = this;
-        this.email = 'admin';
-        this.password = 'admin';
+        this.email = '';
+        this.password = '';
         this.error = false;
 
         this.errorHandler = function () {
